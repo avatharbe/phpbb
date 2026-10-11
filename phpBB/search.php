@@ -998,9 +998,10 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 				if ($row['bbcode_uid'])
 				{
 					$text_only_message = str_replace('[*:' . $row['bbcode_uid'] . ']', '&sdot;&nbsp;', $text_only_message);
-					// no BBCode in text only message
-					strip_bbcode($text_only_message, $row['bbcode_uid']);
 				}
+
+				// no BBCode in text only message; posts stored as s9e XML need cleaning even without a BBCode uid
+				strip_bbcode($text_only_message, $row['bbcode_uid']);
 
 				if ($return_chars === 0 || utf8_strlen($text_only_message) < ($return_chars + 3))
 				{
