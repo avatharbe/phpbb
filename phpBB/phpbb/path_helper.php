@@ -180,9 +180,10 @@ class path_helper
 		/*
 		* If the path info is empty but we're using index.php, then we
 		*	might be using an empty route like index.php/ which is
-		*	supported by symfony's routing
+		*	supported by symfony's routing, optionally followed by a
+		*	query string like index.php/?style=1
 		*/
-		if ($path_info === '/' && preg_match('/index\.' . $this->php_ext . '\/$/', $request_uri))
+		if ($path_info === '/' && preg_match('/index\.' . $this->php_ext . '\/(\?.*)?$/', $request_uri))
 		{
 			return $this->web_root_path = filesystem_helper::clean_path('./../' . $this->phpbb_root_path);
 		}

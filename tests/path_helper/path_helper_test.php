@@ -159,6 +159,27 @@ class phpbb_path_helper_test extends phpbb_test_case
 				'/phpbb-fork/phpBB/index.php',
 				'./../',
 			),
+			array(
+				self::$phpbb_root_path . 'test.php',
+				'/',
+				'/phpbb-fork/phpBB/index.php/?style=1',
+				'/phpbb-fork/phpBB/index.php',
+				'./../',
+			),
+			array(
+				self::$phpbb_root_path . 'test.php',
+				'/',
+				'/phpbb-fork/phpBB/index.php/?style=1&sid=abc',
+				'/phpbb-fork/phpBB/index.php',
+				'./../',
+			),
+			array(
+				self::$phpbb_root_path . 'test.php',
+				'/',
+				'/phpbb-fork/phpBB/index.php?style=1',
+				'/phpbb-fork/phpBB/index.php',
+				'',
+			),
 
 			// No correction if the path is already prepend by the web root path
 			array(
